@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+}
+
+header{
+    width: 100%;
+    background-color: black;
+    border-bottom: #f49404 4px solid;
+    font-family: sans-serif;
+}
+
+.dollar-icon{
+    width: 100px;
+}
+
+.navbar-container{
+    padding: 0.5rem 0;
+    width: 80%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+    
+}
+
+.navbar-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 0 4rem;
+    text-transform: capitalize;
+}
+
+.navbar-items a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #f49404;
+    font-weight: bold;
+}
+
+.navbar-items a:hover {
+    color: rgb(177, 115, 0);
+}
+
+
