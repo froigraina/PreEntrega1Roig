@@ -1,7 +1,8 @@
 import React from "react";
-import "./Styles.css";
+import "./NavBar.css";
 
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const links = [
   {
@@ -26,17 +27,17 @@ const links = [
   },
 ];
 
-function NavBar() {
+const NavBar = () => {
   return (
     <header>
       <div className="navbar-container">
-        <a href="/">
-          <img className="dollar-icon" src="/dollar.png" />
-        </a>
+        <Link to="/">
+          <img className="dollar-icon" src="/dollar.png" alt="dollar-brand"/>
+        </Link>
         <ul className="navbar-items">
           {links.map((link, index) => (
             <li key={index}>
-              <a href={link.to}>{link.title}</a>
+              <Link to={link.to}>{link.title}</Link>
             </li>
           ))}
         </ul>

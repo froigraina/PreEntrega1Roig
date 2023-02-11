@@ -1,6 +1,6 @@
 import { RiShoppingCartLine } from "react-icons/ri";
 import React from "react";
-import "./Styles.css";
+import "./CartWidget.css";
 
 function CartWidget() {
   return (

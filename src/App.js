@@ -1,15 +1,22 @@
 import "./App.css";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+import Inicio from './pages/Inicio/Inicio';
+import Productos from './pages/Productos/Productos';
+import Contacto from './pages/Contacto/Contacto';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
-  const greeting = "Bienvenidos a mi tienda";
-
   return (
-    <>
+    <Router>
       <NavBar />
-      <ItemListContainer greeting={greeting} />
-    </>
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
+    </Router>
   );
 }
 
