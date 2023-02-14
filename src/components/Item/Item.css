@@ -5,18 +5,23 @@
   border-radius: 20px;
   text-align: center;
   box-shadow: 5px 5px 20px 5px rgba(155, 155, 155, 0.25);
-  transition: all ease 0.4s;
   cursor: pointer;
+  transition: transform 0.4s ease;
 }
 
 .item:hover {
-  transform: scale(1.05);
-  box-shadow: 7px 7px 20px 7px rgba(244, 148, 4, 0.25), inset 7px 7px 20px 7px rgba(244, 148, 4, 0.25);
+  transform: scale(1.02);
+  box-shadow: 7px 7px 20px 7px rgba(244, 148, 4, 0.25),
+    inset 7px 7px 20px 7px rgba(244, 148, 4, 0.25);
 }
 
 .item-img {
   border-radius: 20px 20px 0 0;
   overflow: hidden;
+}
+
+.item-img img {
+  display: block;
 }
 
 .item-content {
@@ -31,11 +36,16 @@
   color: rgb(23, 23, 23);
   display: flex;
   border-radius: 0 0 20px 20px;
+  font-size: 0.9rem;
+  max-height: 84px;
 }
 
 .item-atribute {
   width: 100%;
   padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-atribute + .item-atribute {

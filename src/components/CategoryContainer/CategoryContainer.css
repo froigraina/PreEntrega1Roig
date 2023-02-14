@@ -1,48 +1,23 @@
+.main {
+  background-color: black;
+  min-height: 100vh;
+}
 
-.category {
-    width: 300px;
-    display: inline-block;
-    position: relative;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 5px 5px 20px 5px rgba(155, 155, 155, 0.25);
-    transition: all ease 0.4s;
-    cursor: pointer;
-    gap: 4rem 3rem;
-    
-  }
-  
-  .category:hover {
-    transform: scale(1.05);
-    box-shadow: 7px 7px 20px 7px rgba(244, 148, 4, 0.25), inset 7px 7px 20px 7px rgba(244, 148, 4, 0.25);
-  }
-  
-  .category-img {
-    border-radius: 20px 20px 0 0;
-    overflow: hidden;
-    
-  }
-  
-  .category-content {
-    background-color: rgb(23, 23, 23);
-    color: rgb(244, 148, 4);
-    height: 50px;
-    padding-top: 0.5rem;
-  }
-  
-  .category-atributes {
-    background-color: rgb(244, 148, 4);
-    color: rgb(23, 23, 23);
-    display: flex;
-    border-radius: 0 0 20px 20px;
-  }
-  
-  .category-atribute {
-    width: 100%;
-    padding: 2rem 1rem;
-  }
-  
-  .category-atribute + .category-atribute {
-    border-left: 1px solid rgb(23, 23, 23);
-  }
-  
+.category-container {
+  text-align: center;
+  padding: 4rem 0;
+  display: flex !important;
+  justify-content: center;
+  gap: 1.5rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+
+.category-container a {
+  color: #f49404;
+  text-decoration: none;
+}
+
+.category-container a:hover {
+  color: rgb(177, 115, 0);
+}

@@ -1,24 +1,23 @@
 import React from "react";
+import { Container } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./CategoryContainer.css";
 
-const CategoryContainer = ({ data, category }) => {
+const categories = [
+  { title: "human" },
+  { title: "alien" },
+  { title: "humanoid" },
+];
+
+const CategoryContainer = () => {
   return (
-    <div className="category">
-      <div className="category-img">
-        <img src="./dollar.png" alt="dollar" />
-      </div>
-      <div className="category-content">
-        <h1>{category}</h1>
-      </div>
-      <div className="category-atributes">
-        <div className="category-atribute">
-          <p>"Ver todos"</p>
-        </div>
-        <div className="category-atribute">
-          <p>Blaba</p>
-        </div>
-      </div>
-    </div>
+    <Container component={"nav"} className="category-container">
+      {categories.map((category) => (
+        <Link key={category.title} to={`/products/${category.title}`}>
+          {category.title}
+        </Link>
+      ))}
+    </Container>
   );
 };
 

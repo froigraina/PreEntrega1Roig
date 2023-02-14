@@ -1,12 +1,23 @@
-import React from 'react'
-import Item from './../Item/Item';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-  return (
-    <div>
-      <Item/>
-    </div>
-  )
-}
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
 
-export default ItemDetailContainer
+  useEffect(() => {
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then((json) => setProduct(json))
+      .catch((error) => console.log(error));
+  }, [id]);
+
+  return (
+    <>
+      <ItemDetail data={product} />
+    </>
+  );
+};
+
+export default ItemDetailContainer;

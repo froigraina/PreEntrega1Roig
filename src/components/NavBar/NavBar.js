@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css";
 
 import CartWidget from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 
 const links = [
   {
@@ -11,7 +11,7 @@ const links = [
     dropdown: false,
   },
   {
-    to: "/productos",
+    to: "/products",
     title: "productos",
     dropdown: true,
   },
@@ -27,6 +27,9 @@ const links = [
   },
 ];
 
+let activeStyle = {
+  textDecoration: "underline",
+}
 const NavBar = () => {
   return (
     <header>
@@ -37,7 +40,7 @@ const NavBar = () => {
         <ul className="navbar-items">
           {links.map((link, index) => (
             <li key={index}>
-              <Link to={link.to}>{link.title}</Link>
+              <NavLink to={link.to} style={({isActive})=> isActive ? activeStyle : undefined}>{link.title}</NavLink>
             </li>
           ))}
         </ul>

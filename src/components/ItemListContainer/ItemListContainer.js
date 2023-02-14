@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
 import Item from "../Item/Item.js";
-import CategoryContainer from './../CategoryContainer/CategoryContainer';
+import CategoryContainer from "./../CategoryContainer/CategoryContainer";
+import { Link, useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [product, setProduct] = useState([]);
+  const { category } = useParams();
 
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10")
-      .then((response) => response.json())
-      .then((json) => setProduct(json))
-      .catch((error) => console.log(error));
-  }, []);
+    if (category) {
+      fetch(
+        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,22,43,76,14,21,69,115,13,306,265,244,242"
+      )
+        .then((response) => response.json())
+        .then((json) => {
+          const filteredCharacters = json.filter(
+            (character) => character.species.toLowerCase() === category
+          );
+          setProduct(filteredCharacters);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      fetch(
+        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,22,43,76,14,21,69,115,13,306,265,244,242"
+      )
+        .then((response) => response.json())
+        .then((json) => setProduct(json))
+        .catch((error) => console.log(error));
+    }
+  }, [category]);
 
   return (
     <main className="main">
-      <div className="category-container">
-        <CategoryContainer category={"Gender"}/>
-        <CategoryContainer category={"Species"}/>
-        <CategoryContainer category={"Status"}/>
-      </div>
+      <CategoryContainer />
       <div className="item-list-container">
-        {product.map((product) => {
-          return <Item key={product.id} data={product} />;
-        })}
+        {product.map((product) => (
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <Item data={product} />
+          </Link>
+        ))}
       </div>
     </main>
   );

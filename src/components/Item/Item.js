@@ -1,4 +1,3 @@
-import React from "react";
 import "./Item.css";
 
 const Item = ({ data }) => {
@@ -16,7 +15,7 @@ const Item = ({ data }) => {
           <p>{`Gender: ${data.gender}`}</p>
         </div>
         <div className="item-atribute">
-        <p>{`Specie: ${data.species}`}</p>
+          <p>{`Specie: ${data.species}`}</p>
         </div>
       </div>
     </div>

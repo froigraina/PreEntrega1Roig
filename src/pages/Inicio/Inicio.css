@@ -1,0 +1,15 @@
+main {
+    width: 100vw;
+    background-color: black;
+  }
+  
+  .dollar-banner {
+    margin: 0 auto;
+    width: 50%;
+    height: 100vh;
+   
+    background-image: url(../../../public/dollar.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }

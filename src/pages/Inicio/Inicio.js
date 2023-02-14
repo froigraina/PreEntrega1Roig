@@ -1,12 +1,15 @@
-import React from 'react'
-import ItemListContainer from '../../components/ItemListContainer/ItemListContainer'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Inicio.css";
 
 const Inicio = () => {
   return (
-    <div>
-      <ItemListContainer/>
-    </div>
-  )
-}
+    <main>
+      <Link to="/products">
+        <div className="dollar-banner"></div>
+      </Link>
+    </main>
+  );
+};
 
-export default Inicio
+export default Inicio;
