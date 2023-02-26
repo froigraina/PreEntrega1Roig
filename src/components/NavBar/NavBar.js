@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css";
 
 import CartWidget from "../CartWidget/CartWidget";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const links = [
   {
@@ -29,18 +29,23 @@ const links = [
 
 let activeStyle = {
   textDecoration: "underline",
-}
+};
 const NavBar = () => {
   return (
     <header>
       <div className="navbar-container">
         <Link to="/">
-          <img className="dollar-icon" src="/dollar.png" alt="dollar-brand"/>
+          <img className="dollar-icon" src="/dollar.png" alt="dollar-brand" />
         </Link>
         <ul className="navbar-items">
           {links.map((link, index) => (
             <li key={index}>
-              <NavLink to={link.to} style={({isActive})=> isActive ? activeStyle : undefined}>{link.title}</NavLink>
+              <NavLink
+                to={link.to}
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                {link.title}
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -48,6 +53,6 @@ const NavBar = () => {
       </div>
     </header>
   );
-}
+};
 
 export default NavBar;

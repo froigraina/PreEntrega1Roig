@@ -2,8 +2,11 @@ import React from "react";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { CartContext } from "./../../Context/CartContext";
+import { useContext } from "react";
 
 const ItemDetail = ({ data }) => {
+  const { addItemToCart } = useContext(CartContext);
   const { name, image, species, gender, origin, location } = data;
 
   return (
@@ -23,6 +26,9 @@ const ItemDetail = ({ data }) => {
           <Link to="/products" className="item-link">
             <BiArrowBack /> <span>Volver</span>
           </Link>
+          <button onClick={() => addItemToCart(data)}>
+            Agregar al carrito
+          </button>
         </div>
       </div>
     </main>

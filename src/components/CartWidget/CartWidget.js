@@ -1,8 +1,12 @@
 import { RiShoppingCartLine } from "react-icons/ri";
 import React from "react";
 import "./CartWidget.css";
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
 
-function CartWidget() {
+const CartWidget = () => {
+  const { getItemCount } = useContext(CartContext);
+
   return (
     <div className="cart-container">
       <a href="/cartWidget">
@@ -12,9 +16,9 @@ function CartWidget() {
           className="cart-icon"
         />
       </a>
-      <p>0</p>
+      {getItemCount() > 0 && <span>{getItemCount()}</span>}
     </div>
   );
-}
+};
 
 export default CartWidget;

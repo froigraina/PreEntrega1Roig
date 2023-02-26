@@ -1,15 +1,64 @@
 main {
-    width: 100vw;
-    background-color: black;
-  }
+  width: 100vw;
+  background-color: black;
+}
+
+.dollar-banner {
+  margin: 0 auto;
+  width: 50%;
+  height: 100vh;
+
+  background-image: url(../../../public/dollar.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.dollar-subtittle {
+  font-family: inherit;
+  color: #f49404;
+  padding: 2rem 0;
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 1000px;
+  height: 600px;
+}
+
+section img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+section img:hover {
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(100%);
+}
+
+.dollar-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f49404;
+  width: 75%;
+  max-width: 1600px;
+  margin-top: -200px;
+  margin-bottom: -200px;
   
-  .dollar-banner {
-    margin: 0 auto;
-    width: 50%;
-    height: 100vh;
-   
-    background-image: url(../../../public/dollar.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
+ }
+
+

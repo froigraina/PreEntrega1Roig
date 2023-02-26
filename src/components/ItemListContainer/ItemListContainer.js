@@ -3,8 +3,9 @@ import "./ItemListContainer.css";
 import Item from "../Item/Item.js";
 import CategoryContainer from "./../CategoryContainer/CategoryContainer";
 import { Link, useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   const [product, setProduct] = useState([]);
   const { category } = useParams();
 
@@ -35,11 +36,7 @@ const ItemListContainer = () => {
     <main className="main">
       <CategoryContainer />
       <div className="item-list-container">
-        {product.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id}>
-            <Item data={product} />
-          </Link>
-        ))}
+        <ItemList product={product}/>
       </div>
     </main>
   );
