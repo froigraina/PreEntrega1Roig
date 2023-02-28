@@ -6,13 +6,13 @@ function ItemList(props) {
   const { product } = props;
 
   return (
-    <div>
+    <>
       {product.map((product) => (
         <Link to={`/product/${product.id}`} key={product.id}>
           <Item data={product} />
         </Link>
       ))}
-    </div>
+    </>
   );
 }
 

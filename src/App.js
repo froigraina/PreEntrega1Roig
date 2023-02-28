@@ -7,7 +7,8 @@ import Productos from "./pages/Productos/Productos";
 import Contacto from "./pages/Contacto/Contacto";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from "./Context/CartContext";
-import Cart from './pages/Cart/Cart';
+import Cart from "./pages/Cart/Cart";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cartWidget" element={<Cart />} />
         </Routes>
+        <Footer />
       </Router>
     </CartProvider>
   );

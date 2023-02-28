@@ -18,3 +18,10 @@ img{
     font-weight: bold;
     
 }
+
+.icon-container{
+    color: #f49404;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}

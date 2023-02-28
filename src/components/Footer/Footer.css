@@ -1,0 +1,24 @@
+.footer-section-container {
+  background-color: black;
+  color: #f49404;
+  border-top:#f49404 4px solid;
+}
+
+.footer-section {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 2rem 0;
+}
+
+.footer-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-info-colums {
+  padding: 0 3rem;
+}
+
+.footer-info-colums + .footer-info-colums {
+  border-left: #f49404 3px solid;
+}

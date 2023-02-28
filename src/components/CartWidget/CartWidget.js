@@ -9,14 +9,15 @@ const CartWidget = () => {
 
   return (
     <div className="cart-container">
-      <a href="/cartWidget">
+      <a className="icon-container" href="/cartWidget">
         <RiShoppingCartLine
           color="#f49404"
           fontSize="35px"
           className="cart-icon"
         />
-      </a>
       {getItemCount() > 0 && <span>{getItemCount()}</span>}
+
+      </a>
     </div>
   );
 };
