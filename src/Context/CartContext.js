@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect} from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -36,11 +36,29 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeItemFromCart = (itemToRemove) => {
-    const updatedCartItems = cartItems.filter(
-      (cartItem) => cartItem.id !== itemToRemove.id
+  const addItemQuantity = (id) => {
+    setCartItems(
+      cartItems.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
     );
-    setCartItems(updatedCartItems);
+  };
+
+  const removeItemFromCart = (id) => {
+    const existingCartItem = cartItems.find((cartItem) => cartItem.id === id);
+    if (existingCartItem.quantity > 1) {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCartItems(cartItems.filter((cartItem) => cartItem.id !== id));
+    }
   };
 
   const clearCart = () => {
@@ -59,6 +77,7 @@ export const CartProvider = ({ children }) => {
         removeItemFromCart,
         clearCart,
         getItemCount,
+        addItemQuantity,
       }}
     >
       {children}

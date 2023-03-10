@@ -1,38 +1,86 @@
 .item-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10rem;
-    padding: 10rem 20rem;
-    color: #f49404;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+  padding: 10rem 20rem;
+  color: #f49404;
+}
+
+.item-left-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   
-  .item-column {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  .item-container img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  
-  .item-container h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .item-container p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-  }
-  
-  .item-link {
-    padding-top: 2rem;
-    font-size: 1.2rem;
-    color: #f49404;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+}
+
+.item-right-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.item-container img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.item-container h1 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.item-container p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.item-container h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 150px;
+  color: rgb(199, 199, 199)
+}
+
+.item-link {
+  padding-top: 2rem;
+  font-size: 1.2rem;
+  color: #f49404;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.addtocart-button {
+  background-color: rgb(110, 110, 110);
+  color: rgb(199, 199, 199);
+  padding: 10px;
+  font-size: large;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.addtocart-button:hover {
+  background-color: rgb(141, 141, 141);
+}
+
+#size-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+  align-items: center;
+  color: rgb(199, 199, 199);
+}
+#size-container span {
+  border: rgba(175, 175, 175, 0.623) 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+}

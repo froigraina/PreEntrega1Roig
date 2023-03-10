@@ -4,31 +4,41 @@ import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { CartContext } from "./../../Context/CartContext";
 import { useContext } from "react";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 const ItemDetail = ({ data }) => {
   const { addItemToCart } = useContext(CartContext);
-  const { name, image, species, gender, origin, location } = data;
+  const { name, img, size, price } = data;
 
   return (
     <main className="main">
       <div className="item-container">
-        <div className="item-column">
-          <img src={image} alt={name} />
+        <div className="item-left-column">
+          <img src={img} alt={name} />
         </div>
-        <div className="item-column">
-          <div>
-            <h1>{name}</h1>
-            <p>Species: {species}</p>
-            <p>Gender: {gender}</p>
-            <p>Origin: {origin?.name}</p>
-            <p>Location: {location?.name}</p>
+        <div className="item-right-column">
+          <h1>{name}</h1>
+
+          <div id="size-container">
+            <p>Size:</p>
+            <p>Color:</p>
+            <span> {size}</span>
+            <span> Unico</span>
           </div>
+          <h2> ${price}</h2>
+
+          <button
+            className="addtocart-button"
+            onClick={() => addItemToCart(data)}
+          >
+            <span>
+              <RiShoppingCartLine color="rgb(199, 199, 199)" fontSize="30px" />
+            </span>
+            <span> Agregar al carrito</span>
+          </button>
           <Link to="/products" className="item-link">
             <BiArrowBack /> <span>Volver</span>
           </Link>
-          <button onClick={() => addItemToCart(data)}>
-            Agregar al carrito
-          </button>
         </div>
       </div>
     </main>

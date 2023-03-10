@@ -1,44 +1,60 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
-import Item from "../Item/Item.js";
 import CategoryContainer from "./../CategoryContainer/CategoryContainer";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+import { collection, query, getDocs, where } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+import Loader from "../Loader/Loader";
 
 const ItemListContainer = (props) => {
   const [product, setProduct] = useState([]);
   const { category } = useParams();
+  const [isLoading, setIsLoading] = useState([false]);
 
   useEffect(() => {
-    if (category) {
-      fetch(
-        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,22,43,76,14,21,69,115,13,306,265,244,242"
-      )
-        .then((response) => response.json())
-        .then((json) => {
-          const filteredCharacters = json.filter(
-            (character) => character.species.toLowerCase() === category
-          );
-          setProduct(filteredCharacters);
-        })
-        .catch((error) => console.log(error));
-    } else {
-      fetch(
-        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,22,43,76,14,21,69,115,13,306,265,244,242"
-      )
-        .then((response) => response.json())
-        .then((json) => setProduct(json))
-        .catch((error) => console.log(error));
-    }
+    setIsLoading(true);
+    const getProducts = async () => {
+      const docs = [];
+
+      if (category) {
+        const q = query(
+          collection(db, "clothes"),
+          where("category", "==", category)
+        );
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          docs.push({ ...doc.data(), id: doc.id });
+        });
+        setProduct(docs);
+      } else {
+        const q = query(collection(db, "clothes"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          docs.push({ ...doc.data(), id: doc.id });
+        });
+        setProduct(docs);
+      }
+    };
+    getProducts();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, [category]);
 
   return (
-    <main className="main">
-      <CategoryContainer />
-      <div className="item-list-container">
-        <ItemList product={product}/>
-      </div>
-    </main>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <main className="main">
+          <CategoryContainer />
+          <div className="item-list-container">
+            <ItemList product={product} />
+          </div>
+        </main>
+      )}
+    </>
   );
 };
 

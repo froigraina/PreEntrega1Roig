@@ -21,8 +21,8 @@ const links = [
     dropdown: false,
   },
   {
-    to: "/quienes-somos",
-    title: "quienes somos",
+    to: "/colaboraciones",
+    title: "colaboraciones",
     dropdown: false,
   },
 ];
