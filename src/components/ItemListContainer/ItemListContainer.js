@@ -39,7 +39,7 @@ const ItemListContainer = (props) => {
     getProducts();
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 2000);
   }, [category]);
 
   return (

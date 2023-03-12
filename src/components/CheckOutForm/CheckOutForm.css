@@ -1,34 +1,47 @@
-.loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  
-  .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .loader-icon {
-    animation: spin 1s infinite linear;
-    font-size: 80px;
-    color: #fff;
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  min-height: 80vh;
+  height: auto;
+  width: auto;
+  background-color: black;
+  color: rgb(199, 199, 199);
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.checkout-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid orange;
+  padding: 30px 100px;
+}
+
+label {
+  margin-bottom: 30px;
+  font-size: larger;
+}
+
+input {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+button {
+  background-color: rgb(199, 199, 199);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 60px;
+}

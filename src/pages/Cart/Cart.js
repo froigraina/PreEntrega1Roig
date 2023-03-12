@@ -8,9 +8,7 @@ import "./Cart.css";
 
 const Cart = () => {
   const { clearCart, cartItems } = useContext(CartContext);
-  console.log(cartItems.length);
   
-
   return (
     <div>
       {cartItems.length === 0 ? (
@@ -32,7 +30,7 @@ const Cart = () => {
           </div>
           <>
             {cartItems.map((cartItems) => (
-              <CartItem data={cartItems} />
+              <CartItem data={cartItems} key={cartItems.id} />
             ))}
           </>
           <div id="button-container">
@@ -42,7 +40,10 @@ const Cart = () => {
               </Link>
             </button>
             <button onClick={clearCart}>Clear Cart</button>
-            <button onClick={clearCart}>Finalizar Compra</button>
+
+            <Link to="/checkout" className="link-items">
+              <button>Finalizar compra</button>
+            </Link>
           </div>
         </div>
       )}

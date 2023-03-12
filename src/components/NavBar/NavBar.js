@@ -15,11 +15,7 @@ const links = [
     title: "productos",
     dropdown: true,
   },
-  {
-    to: "/contacto",
-    title: "contacto",
-    dropdown: false,
-  },
+
   {
     to: "/colaboraciones",
     title: "colaboraciones",
